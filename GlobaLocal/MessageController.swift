@@ -16,15 +16,16 @@ class MessageController {
     static let messagesRef = ref.child("messages")
     static let chatMembersRef = ref.child("chatMembers")
     
-    static func sendMessage(room: String, username: String, messageText: String) {
-        let message = Message(roomNumber: room, senderUsername: username, body: messageText)
-        messagesRef.child(room).childByAutoId().setValue(message.jsonValue)
+    static var messages: [Message] = []
+    
+    static func sendMessage(state: String, room: String, username: String, messageText: String) {
+        let message = Message(room: room, senderUsername: username, body: messageText)
+        messagesRef.child(state).child(room).childByAutoId().setValue(message.jsonValue)
         checkIfUserIsAlreadyInRoom(username, room: room) { (isInRoom) in
             if !isInRoom {
-                chatMembersRef.child(room).child(username).setValue(true)
+                chatMembersRef.child(state).child(room).child(username).setValue(true)
             }
         }
-        
     }
     
     static func checkIfUserIsAlreadyInRoom(username: String, room: String, completion: (isInRoom: Bool) -> Void) {

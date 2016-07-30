@@ -7,10 +7,14 @@
 //
 
 import UIKit
-
+import FirebaseAuth
+import FirebaseDatabase
 class SignupViewController: UIViewController {
     
     
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,10 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func signupButtonTapped(sender: AnyObject) {
+        guard let email = emailTextField.text, password = passwordTextField.text, username = usernameTextField.text else { return }
+        UserController.signUpAndSignInUser(email, password: password, username: username, viewController: self)
+    }
     
     /*
      // MARK: - Navigation

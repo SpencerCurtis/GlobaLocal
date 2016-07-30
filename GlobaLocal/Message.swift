@@ -18,7 +18,7 @@ class Message {
     let body: String
     let timestamp: NSTimeInterval
     
-    init(roomNumber: String, senderUsername: String, body: String, timestamp: NSTimeInterval = NSDate().timeIntervalSince1970) {
+    init(room: String, senderUsername: String, body: String, timestamp: NSTimeInterval = NSDate().timeIntervalSince1970) {
         self.senderUsername = senderUsername
         self.body = body
         self.timestamp = timestamp

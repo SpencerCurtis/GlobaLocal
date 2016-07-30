@@ -28,13 +28,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signInButtonTapped(sender: AnyObject) {
         guard let email = emailTextField.text where ((emailTextField.text?.containsString("@")) != nil), let password = passwordTextField.text else { return }
-        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
-            guard error == nil else { print(error?.localizedDescription); return }
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainTVC = storyboard.instantiateViewControllerWithIdentifier("mainTableView")
-            self.presentViewController(mainTVC, animated: true, completion: nil)
-            
-        })
+        UserController.signInUser(email, password: password, viewController: self)
     }
     
     /*

@@ -7,35 +7,31 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        if NSUserDefaults.standardUserDefaults().valueForKey("loginDictionary") == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let signupVC = storyboard.instantiateViewControllerWithIdentifier("signupVC")
+            self.presentViewController(signupVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return RoomController.states.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("stateCell", forIndexPath: indexPath)
-        
         
         cell.textLabel?.text = RoomController.states[indexPath.row]
         
@@ -84,9 +80,9 @@ class MainTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "stateDetailSegue" {
-        guard let indexPath = tableView.indexPathForSelectedRow, dvc = segue.destinationViewController as? StateDetailTableViewController else { return }
-        let state = RoomController.states[indexPath.row]
-        dvc.state = state
+            guard let indexPath = tableView.indexPathForSelectedRow, dvc = segue.destinationViewController as? StateDetailTableViewController else { return }
+            let state = RoomController.states[indexPath.row]
+            dvc.state = state
         }
         
     }

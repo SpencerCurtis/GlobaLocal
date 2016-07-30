@@ -20,6 +20,11 @@
 		464F53691D4950AC00A54E20 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F53631D4950AC00A54E20 /* MessageController.swift */; };
 		464F536A1D4950AC00A54E20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F53641D4950AC00A54E20 /* LoginViewController.swift */; };
 		464F536B1D4950AC00A54E20 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F53651D4950AC00A54E20 /* Message.swift */; };
+		464F536D1D49517500A54E20 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F536C1D49517500A54E20 /* ChatViewController.swift */; };
+		4697F7B91D4C5497007DCCEB /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697F7B81D4C5497007DCCEB /* UserController.swift */; };
+		46A8E2FD1D4AAF9000500098 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8E2FC1D4AAF9000500098 /* ChatTableViewCell.swift */; };
+		46F97E8F1D4C0736002CEB2D /* DynamicChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F97E8E1D4C0736002CEB2D /* DynamicChatBubble.swift */; };
+		46F97E911D4C147E002CEB2D /* MessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F97E901D4C147E002CEB2D /* MessageLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		464F53631D4950AC00A54E20 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		464F53641D4950AC00A54E20 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		464F53651D4950AC00A54E20 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		464F536C1D49517500A54E20 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		4697F7B81D4C5497007DCCEB /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		46A8E2FC1D4AAF9000500098 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		46F97E8E1D4C0736002CEB2D /* DynamicChatBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicChatBubble.swift; sourceTree = "<group>"; };
+		46F97E901D4C147E002CEB2D /* MessageLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageLabel.swift; sourceTree = "<group>"; };
 		4CF2C933C762DD95F944DF20 /* Pods-GlobaLocal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobaLocal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlobaLocal/Pods-GlobaLocal.debug.xcconfig"; sourceTree = "<group>"; };
 		C220CAAF1EF388B52919BA6C /* Pods-GlobaLocal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlobaLocal.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlobaLocal/Pods-GlobaLocal.release.xcconfig"; sourceTree = "<group>"; };
 		E0785D9DC48BD64C1B9666A7 /* Pods_GlobaLocal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlobaLocal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +64,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		461D643E1D49697E00F21083 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46A8E2FC1D4AAF9000500098 /* ChatTableViewCell.swift */,
+				46F97E901D4C147E002CEB2D /* MessageLabel.swift */,
+				464F53621D4950AC00A54E20 /* MainTableViewController.swift */,
+				464F535E1D49501600A54E20 /* SignupViewController.swift */,
+				464F53641D4950AC00A54E20 /* LoginViewController.swift */,
+				464F53611D4950AC00A54E20 /* StateDetailTableViewController.swift */,
+				464F536C1D49517500A54E20 /* ChatViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		461D643F1D49698F00F21083 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				464F53631D4950AC00A54E20 /* MessageController.swift */,
+				464F53601D4950AC00A54E20 /* RoomController.swift */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		461D64401D4969B200F21083 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				464F53651D4950AC00A54E20 /* Message.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		464F533E1D494EC800A54E20 = {
 			isa = PBXGroup;
 			children = (
@@ -77,15 +118,13 @@
 			children = (
 				464F535C1D494F1D00A54E20 /* GoogleService-Info.plist */,
 				464F534A1D494EC800A54E20 /* AppDelegate.swift */,
-				464F535E1D49501600A54E20 /* SignupViewController.swift */,
 				464F534E1D494EC800A54E20 /* Main.storyboard */,
-				464F53601D4950AC00A54E20 /* RoomController.swift */,
-				464F53611D4950AC00A54E20 /* StateDetailTableViewController.swift */,
-				464F53621D4950AC00A54E20 /* MainTableViewController.swift */,
-				464F53631D4950AC00A54E20 /* MessageController.swift */,
-				464F53641D4950AC00A54E20 /* LoginViewController.swift */,
-				464F53651D4950AC00A54E20 /* Message.swift */,
+				4697F7B81D4C5497007DCCEB /* UserController.swift */,
+				461D643E1D49697E00F21083 /* View Controllers */,
+				461D643F1D49698F00F21083 /* Model Controllers */,
+				461D64401D4969B200F21083 /* Models */,
 				464F53511D494EC800A54E20 /* Assets.xcassets */,
+				46F97E8E1D4C0736002CEB2D /* DynamicChatBubble.swift */,
 				464F53531D494EC800A54E20 /* LaunchScreen.storyboard */,
 				464F53561D494EC800A54E20 /* Info.plist */,
 			);
@@ -237,8 +276,13 @@
 				464F53691D4950AC00A54E20 /* MessageController.swift in Sources */,
 				464F536B1D4950AC00A54E20 /* Message.swift in Sources */,
 				464F536A1D4950AC00A54E20 /* LoginViewController.swift in Sources */,
+				4697F7B91D4C5497007DCCEB /* UserController.swift in Sources */,
 				464F53671D4950AC00A54E20 /* StateDetailTableViewController.swift in Sources */,
+				46F97E8F1D4C0736002CEB2D /* DynamicChatBubble.swift in Sources */,
 				464F53681D4950AC00A54E20 /* MainTableViewController.swift in Sources */,
+				46A8E2FD1D4AAF9000500098 /* ChatTableViewCell.swift in Sources */,
+				464F536D1D49517500A54E20 /* ChatViewController.swift in Sources */,
+				46F97E911D4C147E002CEB2D /* MessageLabel.swift in Sources */,
 				464F534B1D494EC800A54E20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +399,9 @@
 			baseConfigurationReference = 4CF2C933C762DD95F944DF20 /* Pods-GlobaLocal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = GlobaLocal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpencerCurtis.GlobaLocal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -367,7 +413,9 @@
 			baseConfigurationReference = C220CAAF1EF388B52919BA6C /* Pods-GlobaLocal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = GlobaLocal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpencerCurtis.GlobaLocal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
