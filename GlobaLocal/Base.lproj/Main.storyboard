@@ -112,7 +112,13 @@
                             <outlet property="delegate" destination="etX-gU-qgy" id="Bdl-ph-smT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mTx-95-YQa"/>
+                    <navigationItem key="navigationItem" id="mTx-95-YQa">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="zch-SW-4s6">
+                            <connections>
+                                <action selector="signOutButtonTapped:" destination="etX-gU-qgy" id="gG0-u7-p0d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLc-Jz-EDA" userLabel="First Responder" sceneMemberID="firstResponder"/>

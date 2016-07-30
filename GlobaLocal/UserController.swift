@@ -14,10 +14,10 @@ import UIKit
 class UserController {
     
     static func authenticateUser(completion: (success: Bool) -> Void) {
-        guard let userDictionary = NSUserDefaults.standardUserDefaults().valueForKey("loginDictionary") as? [String: String], email = userDictionary["email"], password = userDictionary["passsword"] else { completion(success: false); return }
+        guard let userDictionary = NSUserDefaults.standardUserDefaults().valueForKey("loginDictionary") as? [String: String], email = userDictionary["email"], password = userDictionary["password"] else { completion(success: false); return }
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
-            guard error == nil && user != nil else { completion(success: false); return }
-            
+            guard error == nil && user != nil else {completion(success: false); return }
+            completion(success: true)
         })
     }
     
@@ -26,14 +26,15 @@ class UserController {
             guard error == nil else { print(error?.localizedDescription); return }
             
             guard let user = user else { return }
-            FIRDatabase.database().reference().child("users").child(user.uid).setValue(["username": username] )
+            FIRDatabase.database().reference().child("users").child(user.uid).setValue(["username": username, "password": password, "email": email])
             
             FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
                 guard error == nil else { print(error?.localizedDescription); return }
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTVC = storyboard.instantiateViewControllerWithIdentifier("mainTableView")
                 viewController.presentViewController(mainTVC, animated: true, completion: nil)
-                let loginDictionary = ["email": email, "password": password]
+                let loginDictionary: [String: String] = ["email": email, "password": password]
+                
                 NSUserDefaults.standardUserDefaults().setValue(loginDictionary, forKey: "loginDictionary")
                 
             })
@@ -49,9 +50,18 @@ class UserController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainTVC = storyboard.instantiateViewControllerWithIdentifier("mainTableView")
             viewController.presentViewController(mainTVC, animated: true, completion: nil)
-            
         })
     }
+    
+    static func signOutUser() {
+        do {
+            try FIRAuth.auth()?.signOut()
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "loginDictionary")
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError.localizedDescription)")
+        }
+    }
+    
     
     
 }
